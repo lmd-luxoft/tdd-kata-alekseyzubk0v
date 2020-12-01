@@ -107,3 +107,12 @@
 		int actual = myCalculator.Add(str);
 		ASSERT_EQ(expected, actual);
 	}
+
+	TEST(TDDKata, AddInvalidArgTest) {
+		char* str = "1,3,6\n";
+		int expected = -1;
+		Calculator myCalculator;
+
+		int actual = myCalculator.Add(str);
+		ASSERT_EQ(expected, actual);
+	}
