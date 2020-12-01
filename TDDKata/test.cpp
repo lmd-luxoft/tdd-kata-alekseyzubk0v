@@ -71,3 +71,21 @@
 		int actual = myCalculator.Add(str);
 		ASSERT_EQ(expected, actual);
 	}
+
+	TEST(TDDKata, Add4argTest) {
+		char* str = "1,1,3,6";
+		int expected = 11;
+		Calculator myCalculator;
+
+		int actual = myCalculator.Add(str);
+		ASSERT_EQ(expected, actual);
+	}
+
+	TEST(TDDKata, Add5argTest) {
+		char* str = "1,1,3,6,1";
+		int expected = 12;
+		Calculator myCalculator;
+
+		int actual = myCalculator.Add(str);
+		ASSERT_EQ(expected, actual);
+	}
