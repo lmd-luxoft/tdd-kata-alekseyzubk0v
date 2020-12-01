@@ -98,3 +98,12 @@
 		int actual = myCalculator.Add(str);
 		ASSERT_EQ(expected, actual);
 	}
+
+	TEST(TDDKata, AddNewLineTest) {
+		char* str = "//;\n1;1\n3;6";
+		int expected = 11;
+		Calculator myCalculator;
+
+		int actual = myCalculator.Add(str);
+		ASSERT_EQ(expected, actual);
+	}
