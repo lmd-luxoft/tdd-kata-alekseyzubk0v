@@ -26,7 +26,6 @@ int Calculator::Add(char* expression)
     int result = 0;
 
     char * delim = ",";
-    char dcmd[50];
     char tempDelim[50];
     int lencmd = 0;
     int scanres = sscanf(istr, "//%s\n", tempDelim);
@@ -42,7 +41,11 @@ int Calculator::Add(char* expression)
         char * lexema = strdup(pch);
         char* pn = strtok(lexema, "\n");
         while (pn != NULL) {
-            int arg = atoi(pn);
+            char* temp;
+            int arg = strtol(pn, &temp, 0);
+            if (temp != '\0') {
+                return -1;
+            }
             if ((arg > 9) || (arg < 0)) {
                 return -1;
             }
