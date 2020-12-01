@@ -24,7 +24,18 @@ int Calculator::Add(char* expression)
     };
 
     int result = 0;
-    char* pch = strtok(istr, ",");
+
+    char * delim = ",";
+    char dcmd[50];
+    char tempDelim[50];
+    int lencmd = 0;
+    int scanres = sscanf(istr, "//%s\n", tempDelim);
+    if (scanres == 1) {
+        delim = tempDelim;
+        lencmd = 3 + strlen(delim);
+    }
+
+    char* pch = strtok(istr + lencmd, delim);
     while (pch != NULL)                         // пока есть лексемы
     {  
         len = strlen(pch);
@@ -39,7 +50,7 @@ int Calculator::Add(char* expression)
             pn = strtok(NULL, "\n");
         }
 
-        pch = strtok(pch + len + 1, ",");
+        pch = strtok(pch + len + 1, delim);
     }
 
     return result;

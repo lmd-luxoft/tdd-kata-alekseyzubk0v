@@ -99,7 +99,7 @@
 		ASSERT_EQ(expected, actual);
 	}
 
-	TEST(TDDKata, AddNewLineTest) {
+	TEST(TDDKata, AddAllDelimTest) {
 		char* str = "//;\n1;1\n3;6";
 		int expected = 11;
 		Calculator myCalculator;
