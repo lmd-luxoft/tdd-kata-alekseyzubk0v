@@ -14,7 +14,6 @@ int Calculator::Add(char* expression)
     // Дублирование строки
     istr = strdup(expression);
 
-    char* args[10];
     if (strstr(expression, "-") != NULL) {
         return -2;
     };
@@ -22,10 +21,6 @@ int Calculator::Add(char* expression)
     int len = strlen(expression);
     if (len == 0) {
         return 0;
-    };
-
-    if (len > 5) {
-        return -1;
     };
 
     int result = 0;
