@@ -8,5 +8,37 @@ int Calculator::Add(std::string expression)
 
 int Calculator::Add(char* expression)
 {
-    throw 0;
+
+    char* istr;
+
+    // Дублирование строки
+    istr = strdup(expression);
+
+    char* args[10];
+    if (strstr(expression, "-") != NULL) {
+        return -2;
+    };
+
+    int len = strlen(expression);
+    if (len == 0) {
+        return 0;
+    };
+
+    if (len > 5) {
+        return -1;
+    };
+
+    int result = 0;
+    char* pch = strtok(istr, ",");
+    while (pch != NULL)                         // пока есть лексемы
+    {
+        int arg = atoi(pch);
+        if ((arg > 9) || (arg < 0)) {
+            return -1;
+        }
+        result += arg;
+        pch = strtok(NULL, ",");
+    }
+
+    return result;
 }
